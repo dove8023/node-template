@@ -1,0 +1,12 @@
+node_modules
+dist
+.idea
+logs/
+.vscode/
+mytest/
+package-local.json
+.env
+text.*
+build/
+dump.rdb
+tmp/

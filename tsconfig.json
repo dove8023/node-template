@@ -1,0 +1,43 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"outDir": "dist/",
+		"noEmitHelpers": true,
+		"importHelpers": true,
+		"sourceMap": false,
+		"inlineSourceMap": true,
+		"inlineSources": true,
+		"declaration": true,
+		"alwaysStrict": true,
+		"experimentalDecorators": true,
+		"noImplicitUseStrict": false,
+		"allowSyntheticDefaultImports": true,
+		"noImplicitAny": false,
+		"noImplicitThis": true,
+		"noUnusedLocals": false,
+		"strict": true,
+		"baseUrl": ".",
+		"lib": [
+			"es2015",
+			"dom"
+		]
+	},
+	"compilerOptionsNotUsing": {
+		"emitDecoratorMetadata": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"noImplicitAny": true,
+		"noUnusedLocals": true
+	},
+	"exclude": [
+		"node_modules",
+		"public",
+		"dist",
+		"tmp",
+		"*.bak",
+		"*.tar.gz",
+		"**/*.test.ts"
+	],
+	"excludeNotUsing": []
+}
