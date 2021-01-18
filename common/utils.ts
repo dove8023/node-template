@@ -5,11 +5,8 @@
  * @Last Modified time: 2020-06-04 11:59:22
  * @content what is the content of this file. */
 
-import { MEMBER_RELATION } from "src/interface";
-import Model from "model";
 import path = require("path");
 import fs = require("fs");
-import * as moment from "moment";
 import * as md5 from "md5";
 
 
