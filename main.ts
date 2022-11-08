@@ -1,16 +1,14 @@
 /*
- * @Author: Mr.He 
- * @Date: 2018-03-02 11:19:32 
+ * @Author: Heath 
+ * @Date: 2022-10-02 11:19:32 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2020-03-12 18:57:46
+ * @Last Modified time: 2022-11-08 10:02:43
  * @content what is the content of this file. */
 
 import fs = require("fs");
-// import "common/db";
-// import "common/cache";
-// import "model";
-// import { handleUpgrade } from "./src/websocket";
-// import "src/task";
+import "common/db";
+import "common/cache";
+import "model";
 
 process.on('unhandledRejection', (reason: any, p: PromiseLike<any>) => {
     console.error("unhandledRejection", reason);
@@ -23,7 +21,7 @@ process.on('uncaughtException', function (err) {
 import app from "./common/http";
 const http = require("http");
 
-const PORT = process.env.API_PORT as string;
+const PORT = process.env.API_PORT || "3000";
 
 const server = http.createServer(app.callback());
 server.on('listening', function () {
@@ -39,6 +37,3 @@ server.on('error', (err: Error) => {
 server.listen(PORT, () => {
     console.log("http server running ", PORT);
 });
-
-// using for websocket
-// server.on("upgrade", handleUpgrade);

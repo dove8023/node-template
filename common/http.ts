@@ -1,18 +1,16 @@
 /*
- * @Author: Mr.He 
- * @Date: 2018-03-22 16:20:52 
+ * @Author: Heath 
+ * @Date: 2022-10-22 16:20:52 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2020-03-23 10:27:34
+ * @Last Modified time: 2022-11-08 08:50:50
  * @content what is the content of this file. */
 
 import * as Koa from "koa";
 import koaBody = require("koa-body");
 import xmlParser = require('koa-xml-body');
-import { response, LoginCheck, loggerMiddle, ApiLimit, SameReqLimit } from "../middleware";
+import { response, LoginCheck, loggerMiddle } from "../middleware";
 import * as cors from "koa2-cors";
-import * as path from "path";
 import { v1 } from "uuid";
-import { notify } from "other/index";
 import reqhash from "middleware/reqhash";
 
 let app = new Koa();
@@ -23,14 +21,12 @@ app.use(async (ctx: Koa.Context, next: Function) => {
         ctx.response.type = "json";
         ctx.state.traceId = v1();
         await next();
-    } catch (err) {
+    } catch (err: any) {
         ctx.response.status = err.status || err.statusCode || 500;
         ctx.response.type = "text";
         ctx.response.body = err.message || err;
-        /* 发送钉钉消息 */
         console.log(`http请求报错，${ctx.url}`);
         console.log(err);
-        notify(`http error catched, ${err}`);
         ctx.logger.error(`http error catched, ${err}`);
         ctx.error(500, `http error catched, ${err}`);
     } finally {
@@ -74,9 +70,9 @@ app.use(loggerMiddle)
         allowMethods: ['GET', 'POST', 'DELETE', 'PUT', 'OPTIONS'],
         allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'token'],
     }))
-    .use(SameReqLimit)
+    // .use(SameReqLimit)
     .use(LoginCheck)
-    .use(ApiLimit)
+    // .use(ApiLimit)
     .use(koaBody({
         jsonLimit: '8mb',
         multipart: true,

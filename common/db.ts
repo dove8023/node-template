@@ -1,11 +1,11 @@
 /*
- * @Author: Mr.He 
- * @Date: 2018-03-02 11:55:52 
+ * @Author: Heath 
+ * @Date: 2022-10-02 11:55:52 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2020-08-25 11:53:33
+ * @Last Modified time: 2022-11-08 10:06:07
  * @content what is the content of this file. */
 
-import * as Sequelize from "sequelize";
+const { Sequelize } = require('sequelize');
 import memoryCache from './lrucache';
 
 const CONFIG = {
@@ -34,7 +34,6 @@ const sequelize = new Sequelize({
         acquire: 30000,
         idle: 10000
     },
-    operatorsAliases: false,
     logging: false,
     define: {
         hooks: {

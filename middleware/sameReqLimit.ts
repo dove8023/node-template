@@ -1,8 +1,8 @@
 /*
- * @Author: Mr.He 
+ * @Author: Heath 
  * @Date: 2019-07-26 17:12:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2019-11-02 09:04:24
+ * @Last Modified time: 2022-11-08 09:37:46
  * @content : 对同一时刻相同请求加以限制 */
 
 import { Context } from 'koa';
@@ -13,6 +13,7 @@ import { HAS_HASH } from 'src/interface';
 export async function SameReqLimit(ctx: Context, next: Function): Promise<any> {
     let { token } = ctx.header;
     token = token || "";
+    token = String(token);
     let url = ctx.url.toLowerCase();
     let method = ctx.method.toLowerCase();
 

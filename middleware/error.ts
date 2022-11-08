@@ -1,7 +1,7 @@
 /*
- * @Author: Mr.He 
- * @Date: 2018-06-18 09:44:44 
- * @Last Modified by: Mr.He
+ * @Author: Heath 
+ * @Date: 2022-10-18 09:44:44 
+ * @Last Modified by: Heath
  * @Last Modified time: 2020-09-02 23:00:54
  * @content what is the content of this file. */
 
@@ -25,7 +25,7 @@ const errorCode: { [index: string]: any } = {
 	// 5** 具体业务
 	// 业务流程报错
 	"500": "未捕获错误",
-	 
+
 }
 
 export default errorCode;
